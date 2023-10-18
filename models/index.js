@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const FormationSchema = require('./Formation')
-const PlayerSchema = require('./Player')
-const TeamSchema = require('./Team')
+const FormationSchema = require('./formation')
+const PlayerSchema = require('./player')
+const TeamSchema = require('./team')
 
 const Formation = mongoose.model('Formation', FormationSchema)
 const Player = mongoose.model('Player', PlayerSchema)
