@@ -32,6 +32,9 @@ app.get('/players/:name', playerController.getOnePlayer)
 // Teams
 app.get('/teams', teamController.getAllTeams)
 app.get('/teams/:name', teamController.getOneTeam)
+app.post('/teams', teamController.createTeam)
+app.put('/teams/:id', teamController.updateTeam)
+app.delete('/teams/:id', teamController.deleteTeam)
 
 
 app.listen(PORT, () => {
