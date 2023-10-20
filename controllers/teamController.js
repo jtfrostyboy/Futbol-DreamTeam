@@ -37,9 +37,17 @@ async function createTeam(req, res) {
 
 async function updateTeam(req, res) {
     try {
-        const input = req.params.name;
-        // const teamOld = await Team.findOne({name: input})
-        const team = await Team.findOneAndUpdate({name: input}, req.body, {new: true})
+        const id = req.params.name;
+        const body_name = req.body.name
+        const old_team = await Team.findOne({name: id})
+        const team = await Team.findOneAndUpdate(
+            {name: id},
+            {
+                name: body_name,
+                formation: old_team.formation,
+                players: old_team.players
+            }
+        )
         if (team) {
             return res.status(200).json(team)
         }

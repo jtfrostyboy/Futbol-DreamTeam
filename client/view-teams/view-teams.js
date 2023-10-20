@@ -7,7 +7,7 @@ const teamsInventory = document.getElementById("team-container")
 const upAndDel = document.getElementById('teamUaD')
 const updateBtn = document.getElementById('updateBtn')
 const deleteBtn = document.getElementById('deleteBtn')
-const textValue = document.getElementById('textValue')
+
 
 function getTeamData() {
     axios.get(`${BASE_URL}/teams`).then(
@@ -27,7 +27,8 @@ function getTeamData() {
 getTeamData()
 
 updateBtn.addEventListener('click', async() => {
-    const updateAction = await axios.put(`${BASE_URL}/teams/${upAndDel.value}`, {name: `${textValue.value}`})
+    const new_name = document.getElementById('textValue').value
+    await axios.put(`${BASE_URL}/teams/${upAndDel.value}`, { name: new_name})
 })
 
 deleteBtn.addEventListener('click', async() => {
