@@ -21,7 +21,7 @@
 }
 .menu-box{
     width: 80%;
-    background: #242449;
+    background: #023020;
     position: absolute;
     top: 17%;
     left: 10%;
@@ -71,3 +71,6 @@
 .menu-links a:hover::after{
     display: inline-block;
 }
+
+
+

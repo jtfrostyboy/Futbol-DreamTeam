@@ -1,0 +1,12 @@
+
+
+.creation{
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5%;
+}
+
+
+.teamPlayers {
+    flex-direction: column;
+}

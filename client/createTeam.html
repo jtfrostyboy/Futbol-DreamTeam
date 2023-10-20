@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script defer src="create-team/create-team.js"></script>
+    <link rel="stylesheet" href="create-team/create-team.css">
     <title>Create Team</title>
 </head>
 <body>
-    
+    <div class="creation" id="create-container">
+        <form>
+            <input type="text" id="teamNameCreate" placeholder="Enter team name"><br>
+            <!-- <label for="Formation">Select a formation</label> -->
+            <select name="Formation" id="formation-select"></select>
+            <!-- <button id="begin">Begin</button> -->
+            <div class="teamPlayers">
+                <form>
+                    <select name="player1" class="player-select" id="player1"></select><br>
+                    <select name="player2" class="player-select" id="player2"></select><br>
+                    <select name="player3" class="player-select" id="player3"></select><br>
+                    <select name="player4" class="player-select" id="player4"></select><br>
+                    <select name="player5" class="player-select" id="player5"></select><br>
+                    <select name="player6" class="player-select" id="player6"></select><br>
+                    <select name="player7" class="player-select" id="player7"></select><br>
+                    <select name="player8" class="player-select" id="player8"></select><br>
+                    <select name="player9" class="player-select" id="player9"></select><br>
+                    <select name="player10" class="player-select" id="player10"></select><br>
+                    <select name="player11" class="player-select" id="player11"></select><br>
+                </form>
+            </div>
+            <button id="createTeamBtn">CREATE</button>
+        </form>
+    </div>
 </body>
 </html>
