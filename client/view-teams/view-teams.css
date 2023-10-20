@@ -64,6 +64,7 @@ button#deleteBtn {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
 }
 
+
 button#updateBtn:hover,
 button#deleteBtn:hover {
     background-color: #8bc34a;
