@@ -1,8 +1,32 @@
 
 
 const BASE_URL = "http://localhost:3001";
+
 let teamsInventoryStr = "";
 const teamsInventory = document.getElementById("team-container")
+const upAndDel = document.getElementById('teamUaD').value
+const deleteBtn = document.getElementById('deleteBtn')
+
+function getTeamData() {
+    axios.get(`${BASE_URL}/teams`).then(
+        (response) => {
+            let result = response.data
+            console.log(result)
+            for (let i = 0; i < result.length; i++) {
+                let opt = result[i].name;              
+                let el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                upAndDel.appendChild(el);
+            }
+        }
+    )
+}
+getTeamData()
+
+deleteBtn.addEventListener('click', async() => {
+    const deleteAction = await axios.delete(`${BASE_URL}/teams/${upAndDel}`)
+})
 
 async function inventoryPopulate(){
     let teams = await axios.get(`${BASE_URL}/teams`);

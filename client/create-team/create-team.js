@@ -45,8 +45,7 @@ function getPlayerData() {
             let result = response.data
             console.log(result)
             for (let i = 0; i < result.length; i++) {
-                let opt = result[i].name;
-                let opt2 = result[i].position;               
+                let opt = result[i].name;              
                 let el = document.createElement("option");
                 el.textContent = opt;
                 el.value = opt;
@@ -74,125 +73,31 @@ getPlayerData()
 createTeamBtn.addEventListener('click', async() => {
     const teamName = document.getElementById('teamNameCreate').value
     const formation = document.getElementById('formation-select').value
-    let playerSelect1Val = document.getElementById('player1').value
-    let playerSelect2Val = document.getElementById('player2').value
-    let playerSelect3Val = document.getElementById('player3').value
-    let playerSelect4Val = document.getElementById('player4').value
-    let playerSelect5Val = document.getElementById('player5').value
-    let playerSelect6Val = document.getElementById('player6').value
-    let playerSelect7Val = document.getElementById('player7').value
-    let playerSelect8Val = document.getElementById('player8').value
-    let playerSelect9Val = document.getElementById('player9').value
-    let playerSelect10Val = document.getElementById('player10').value
-    let playerSelect11Val = document.getElementById('player11').value
+    const playerListResponse = await axios.get(`${BASE_URL}/players`)
+    let playersArr = []
+    let chosenPlayersArr = []
+
+    document.querySelectorAll('.player-select').forEach(player => {
+        chosenPlayersArr.push(player.value)
+    })
+
+    for (let i = 0; i < playerListResponse.data.length; i++) {
+        if (chosenPlayersArr.includes(playerListResponse.data[i].name)) {
+            playersArr.push({
+                name: playerListResponse.data[i].name,
+                position: playerListResponse.data[i].position,
+            })
+        }
+    }
 
 
-
-
-
-    // const players = document.getElementsByClassName('player-select')
-    const playersArray = [];
-
-    
-
-    // document.querySelectorAll('.player-select').forEach(async player => {
-    await axios.get(`${BASE_URL}/players/${playerSelect1Val}`).then(
-            (response) => {
-                let result  = response.data
-                playersArray.push({
-                    name: result.name,
-                    position: result.position
-                })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect2Val}`).then(
-            (response) => {
-                let result  = response.data
-                playersArray.push({
-                    name: result.name,
-                    position: result.position
-                })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect3Val}`).then(
-            (response) => {
-                let result  = response.data
-                playersArray.push({
-                    name: result.name,
-                    position: result.position
-                })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect4Val}`).then(
-            (response) => {
-                let result  = response.data
-                playersArray.push({
-                    name: result.name,
-                    position: result.position
-                })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect5Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect6Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect7Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect8Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect9Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })
-    await axios.get(`${BASE_URL}/players/${playerSelect10Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })  
-    await axios.get(`${BASE_URL}/players/${playerSelect11Val}`).then(
-                (response) => {
-                    let result  = response.data
-                    playersArray.push({
-                        name: result.name,
-                        position: result.position
-                    })
-            })         
-    //         }
-    //     )})
     try {
-        const response1 = await axios.post(`${BASE_URL}/teams`, {
+        const response = await axios.post(`${BASE_URL}/teams`, {
             name: teamName,
             formation: formation,
-            players: playersArray
+            players: playersArr
         })
-        console.log('Team Created', response1.data)
+        console.log('Team Created', response.data)
     } catch (error) {
         console.error('Error creating Team', error)
     }
