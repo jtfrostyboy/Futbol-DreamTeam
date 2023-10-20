@@ -50,8 +50,8 @@ async function updateTeam(req, res) {
 
 async function deleteTeam(req, res) {
     try {
-        const name = req.params.id;
-        const team = await Team.findOneAndDelete(name)
+        const input = req.params.name;
+        const team = await Team.findOneAndDelete({name: input})
         if (team) {
             return res.status(200).send("Team deleted")
         }

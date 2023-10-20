@@ -27,7 +27,6 @@ function getFormationData() {
     axios.get(`${BASE_URL}/formations`).then(
         (response) => {
             let result = response.data
-            console.log(result)
             for (let i = 0; i < result.length; i++) {
                 let opt = result[i].name;                
                 let el = document.createElement("option");
@@ -43,7 +42,6 @@ function getPlayerData() {
     axios.get(`${BASE_URL}/players`).then(
         (response) => {
             let result = response.data
-            console.log(result)
             for (let i = 0; i < result.length; i++) {
                 let opt = result[i].name;              
                 let el = document.createElement("option");
