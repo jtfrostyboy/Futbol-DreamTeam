@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color:black;
+    text-align: center;
+    color: #fff;
+}
+
+.return-links {
+    margin: 20px;
+}
+
+.return-links a {
+    text-decoration: none;
+    color: #4caf50;
+    font-weight: bold;
+    transition: color 0.3s;
+    text-shadow: 2px 2px 4px #00ff00;
+}
+
+.return-links a:hover {
+    color: #8bc34a;
+}
+
+#upAndDel {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select#teamUaD {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+button#updateBtn,
+button#deleteBtn {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+button#updateBtn:hover,
+button#deleteBtn:hover {
+    background-color: #8bc34a;
+}
+
+input#textValue {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+#team-container {
+    margin: 20px;
+}
+
+.team-content {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #c0c0c0;
+    margin-top: 20px;
+}
+
+.team-content th {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.team-content td {
+    border: 1px solid #c0c0c0;
+    padding: 10px;
+    text-align: center;
+}
+
+

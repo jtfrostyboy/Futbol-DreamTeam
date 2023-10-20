@@ -1,12 +1,87 @@
-
-
-.creation{
-    display: flex;
-    justify-content: center;
-    padding-top: 2.5%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('https://as1.ftcdn.net/v2/jpg/05/31/53/56/1000_F_531535631_VhbtpvF6YFvODIXFj5qjqQe2QUpo0srq.jpg') center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.return-links {
+    margin: 20px;
+}
+
+.return-links a {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s, outline 0.3s;
+}
+
+.return-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    outline: 2px solid #fff;
+}
+
+.creation {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+select {
+    cursor: pointer;
+}
 
 .teamPlayers {
-    flex-direction: column;
+    margin-top: 10px;
+}
+
+.player-select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button#createTeamBtn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button#createTeamBtn:hover {
+    background-color: #0056b3;
 }
