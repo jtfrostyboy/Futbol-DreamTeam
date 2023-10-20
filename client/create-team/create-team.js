@@ -88,18 +88,22 @@ createTeamBtn.addEventListener('click', async() => {
         }
     }
 
-
-    try {
-        const response = await axios.post(`${BASE_URL}/teams`, {
-            name: teamName,
-            formation: formation,
-            players: playersArr
-        })
-        console.log('Team Created', response.data)
-    } catch (error) {
-        console.error('Error creating Team', error)
+    if (!teamName) {
+        alert("Error: Please enter a team name")
+    } else {
+        if (playersArr.length == 11) {
+            try {
+                const response = await axios.post(`${BASE_URL}/teams`, {
+                    name: teamName,
+                    formation: formation,
+                    players: playersArr
+                })
+                console.log('Team Created', response.data)
+            } catch (error) {
+                console.error('Error creating Team', error)
+            }
+        } else {
+            alert("Error: Cannot use the same player in multiple positions")
+        }
     }
 })
-
-
-

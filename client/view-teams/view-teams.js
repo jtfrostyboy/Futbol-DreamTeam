@@ -5,7 +5,9 @@ const BASE_URL = "http://localhost:3001";
 let teamsInventoryStr = "";
 const teamsInventory = document.getElementById("team-container")
 const upAndDel = document.getElementById('teamUaD')
+const updateBtn = document.getElementById('updateBtn')
 const deleteBtn = document.getElementById('deleteBtn')
+const textValue = document.getElementById('textValue')
 
 function getTeamData() {
     axios.get(`${BASE_URL}/teams`).then(
@@ -24,9 +26,15 @@ function getTeamData() {
 }
 getTeamData()
 
+updateBtn.addEventListener('click', async() => {
+    const updateAction = await axios.put(`${BASE_URL}/teams/${upAndDel.value}`, {name: `${textValue.value}`})
+})
+
 deleteBtn.addEventListener('click', async() => {
     const deleteAction = await axios.delete(`${BASE_URL}/teams/${upAndDel.value}`)
 })
+
+
 
 async function inventoryPopulate(){
     let teams = await axios.get(`${BASE_URL}/teams`);
