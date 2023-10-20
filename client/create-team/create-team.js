@@ -2,6 +2,7 @@
 const BASE_URL = "http://localhost:3001"
 
 const createTeamBtn = document.getElementById('createTeamBtn')
+const saveTeamBtn = document.getElementById('saveTeamBtn')
 
 let formationSelect = document.getElementById('formation-select')
 let playerSelect1 = document.getElementById('player1')
@@ -73,15 +74,125 @@ getPlayerData()
 createTeamBtn.addEventListener('click', async() => {
     const teamName = document.getElementById('teamNameCreate').value
     const formation = document.getElementById('formation-select').value
-    const players = document.getElementsByClassName('player-select').value
-    console.log(players)
+    let playerSelect1Val = document.getElementById('player1').value
+    let playerSelect2Val = document.getElementById('player2').value
+    let playerSelect3Val = document.getElementById('player3').value
+    let playerSelect4Val = document.getElementById('player4').value
+    let playerSelect5Val = document.getElementById('player5').value
+    let playerSelect6Val = document.getElementById('player6').value
+    let playerSelect7Val = document.getElementById('player7').value
+    let playerSelect8Val = document.getElementById('player8').value
+    let playerSelect9Val = document.getElementById('player9').value
+    let playerSelect10Val = document.getElementById('player10').value
+    let playerSelect11Val = document.getElementById('player11').value
+
+
+
+
+
+    // const players = document.getElementsByClassName('player-select')
+    const playersArray = [];
+
+    
+
+    // document.querySelectorAll('.player-select').forEach(async player => {
+    await axios.get(`${BASE_URL}/players/${playerSelect1Val}`).then(
+            (response) => {
+                let result  = response.data
+                playersArray.push({
+                    name: result.name,
+                    position: result.position
+                })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect2Val}`).then(
+            (response) => {
+                let result  = response.data
+                playersArray.push({
+                    name: result.name,
+                    position: result.position
+                })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect3Val}`).then(
+            (response) => {
+                let result  = response.data
+                playersArray.push({
+                    name: result.name,
+                    position: result.position
+                })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect4Val}`).then(
+            (response) => {
+                let result  = response.data
+                playersArray.push({
+                    name: result.name,
+                    position: result.position
+                })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect5Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect6Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect7Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect8Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect9Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })
+    await axios.get(`${BASE_URL}/players/${playerSelect10Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })  
+    await axios.get(`${BASE_URL}/players/${playerSelect11Val}`).then(
+                (response) => {
+                    let result  = response.data
+                    playersArray.push({
+                        name: result.name,
+                        position: result.position
+                    })
+            })         
+    //         }
+    //     )})
     try {
-        const response = await axios.post(`${BASE_URL}/teams`, {
+        const response1 = await axios.post(`${BASE_URL}/teams`, {
             name: teamName,
             formation: formation,
-            players: players
+            players: playersArray
         })
-        console.log('Team Created', response.data)
+        console.log('Team Created', response1.data)
     } catch (error) {
         console.error('Error creating Team', error)
     }
